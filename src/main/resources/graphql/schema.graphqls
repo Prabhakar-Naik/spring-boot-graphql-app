@@ -4,6 +4,19 @@ type Player{
     team: Team
 }
 
+type Employee{
+    id:String!,
+    name: String,
+    email:String,
+    salary: Int,
+    status:Status
+}
+
+enum Status{
+    ACTIVE,
+    INACTIVE
+}
+
 enum Team{
     CSK,
     RCB,
@@ -14,11 +27,19 @@ enum Team{
 type Query{
     findAll: [Player]
     getPlayer(id: ID): Player
+
+    getEmployees:[Employee]
+    getEmployee(id:ID): Employee
+
 }
 
 type Mutation{
     create(name: String,team: Team): Player
     update(id:ID! name:String, team: Team): Player
     delete(id:ID!): Player
+
+    createEmployee(name: String, email: String,salary:Int,status: Status): Employee
+    updateEmployee(id:String,name: String, email: String,salary:Int,status: Status): Employee
+    deleteEmployee(id:String): String
 }
 
