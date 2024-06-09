@@ -14,6 +14,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Service
 public class PlayerService {
 
+    // working with only collection data
+
     List<Player> players = new ArrayList<>();
 
 
